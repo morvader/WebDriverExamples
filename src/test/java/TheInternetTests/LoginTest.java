@@ -3,19 +3,20 @@ package TheInternetTests;
 import TheInternetPages.HomePage;
 import TheInternetPages.LoginPage;
 import TheInternetPages.LoginSuccessPage;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.net.URL;
 
-import static junit.framework.TestCase.assertTrue;
+import static org.testng.Assert.assertTrue;
 
 /**
  * Created by francisco.moreno on 03/02/2016.
@@ -32,18 +33,17 @@ public class LoginTest {
         String remoto = System.getProperty("remoto");
         remoteDriver = false;
 
-        if(remoto == null || remoto.isEmpty()){
+        if (remoto == null || remoto.isEmpty()) {
             remoteDriver = false;
-        }
-        else if(remoto.equals("si"))
+        } else if (remoto.equals("si"))
             remoteDriver = true;
 
 
     }
 
-    @Before
+    @BeforeMethod
     public void setUp() throws Exception {
-        if(remoteDriver)
+        if (remoteDriver)
             driver = new RemoteWebDriver(
                     new URL("http://192.168.99.100:32769/wd/hub"),
                     DesiredCapabilities.firefox());
@@ -54,7 +54,7 @@ public class LoginTest {
 
     }
 
-    @Test
+    @Test(description = "Intento de login con usuario incorrecto")
     public void testIncorrectUserNameFromHomePage() throws Exception {
 
         //Arrange
@@ -63,21 +63,21 @@ public class LoginTest {
         String pass = "fakePass";
 
         //Act
-        homePage.navigateToLoginPage().loginAs(username,pass);
+        homePage.navigateToLoginPage().loginAs(username, pass);
 
         LoginPage loginPage = new LoginPage(driver);
         WebElement mensaje = loginPage.getMensajeError();
 
         //Assert
         //Comprobamos que se muestra el cajetin de error
-        assertTrue("No se muestra el mensaje de login incorrecto", mensaje.isDisplayed());
+        assertTrue(mensaje.isDisplayed(),"No se muestra el mensaje de login incorrecto");
 
         //El mensaje de error es el esperado
-        assertTrue("El mensaje de error no muestra el texto esperado", mensaje.getText().startsWith("Your username is invalid!"));
+        assertTrue(mensaje.getText().startsWith("Your username is invalid!"),"El mensaje de error no muestra el texto esperado");
 
         //Como comprobacion adicional, verificamos que seguimos en la misma página.
         //Es decir, efectivamente, no nos hemos logado
-        assertTrue("No estamos en la pagina de login", driver.getCurrentUrl().endsWith("login"));
+        assertTrue(driver.getCurrentUrl().endsWith("login"),"No estamos en la pagina de login");
 
 
     }
@@ -92,9 +92,9 @@ public class LoginTest {
         loginPage.loginAs(username, password);
 
         WebElement mensaje = loginPage.getMensajeError();
-        assertTrue("No se muestra el mensaje de login incorrecto", mensaje.isDisplayed());
-        assertTrue("El mensaje de error no muestra el texto esperado", mensaje.getText().startsWith("Your password is invalid!"));
-        assertTrue("No estamos en la pagina de login", driver.getCurrentUrl().endsWith("login"));
+        assertTrue(mensaje.isDisplayed(),"No se muestra el mensaje de login incorrecto");
+        assertTrue(mensaje.getText().startsWith("Your password is invalid!"),"El mensaje de error no muestra el texto esperado");
+        assertTrue(driver.getCurrentUrl().endsWith("login"),"No estamos en la pagina de login");
 
     }
 
@@ -111,12 +111,12 @@ public class LoginTest {
         LoginSuccessPage loginSuccessPage = new LoginSuccessPage(driver);
 
         WebElement mensaje = loginSuccessPage.getMensaje();
-        assertTrue("No se muestra el mensaje de login correcto", mensaje.isDisplayed());
-        assertTrue("El mensaje de exito no muestra el texto esperado", mensaje.getText().startsWith("You logged into a secure area!"));
-        assertTrue("No estamos en la pagina segura", driver.getCurrentUrl().endsWith("secure"));
+        assertTrue(mensaje.isDisplayed(),"No se muestra el mensaje de login correcto");
+        assertTrue(mensaje.getText().startsWith("You logged into a secure area!"),"El mensaje de exito no muestra el texto esperado");
+        assertTrue(driver.getCurrentUrl().endsWith("secure"),"No estamos en la pagina segura");
     }
 
-    @After
+    @AfterMethod
     public void tearDown() throws Exception {
         driver.close();
     }
