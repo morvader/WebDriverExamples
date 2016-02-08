@@ -1,0 +1,13 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<suite name="WebDriverExamples">-->
+    <!--<listeners>-->
+        <!--<listener class-name="Test.Utils.ScreenShotListener" />-->
+    <!--</listeners>-->
+
+    <!--<test name="WebDriverExamplesTest">-->
+        <!--<packages>-->
+            <!--<package name="TheInternetTests" />-->
+        <!--</packages>-->
+    <!--</test>-->
+
+<!--</suite>-->
