@@ -1,5 +1,6 @@
 package TheInternetTests;
 
+import Test.Utils.DriverFactory;
 import TheInternetPages.HomePage;
 import TheInternetPages.LoginPage;
 import TheInternetPages.LoginSuccessPage;
@@ -28,27 +29,9 @@ public class LoginTest {
 
     String url = "http://the-internet.herokuapp.com/";
 
-    @BeforeClass
-    public static void classSetUp() throws Exception {
-        String remoto = System.getProperty("remoto");
-        remoteDriver = false;
-
-        if (remoto == null || remoto.isEmpty()) {
-            remoteDriver = false;
-        } else if (remoto.equals("si"))
-            remoteDriver = true;
-
-
-    }
-
     @BeforeMethod
     public void setUp() throws Exception {
-        if (remoteDriver)
-            driver = new RemoteWebDriver(
-                    new URL("http://192.168.99.100:32769/wd/hub"),
-                    DesiredCapabilities.firefox());
-        else
-            driver = new FirefoxDriver();
+        driver = DriverFactory.getDriver(DriverFactory.Browsers.FIREFOX);
 
         driver.get(url);
 
@@ -118,6 +101,6 @@ public class LoginTest {
 
     @AfterMethod
     public void tearDown() throws Exception {
-        driver.close();
+        driver.quit();
     }
 }

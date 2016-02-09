@@ -40,6 +40,6 @@ public class HoverTest extends BaseTestCase{
     public void tearDown(ITestResult result) throws Exception {
 
         ScreenShot.takeScreenShot(result.getName(),driver);
-        driver.close();
+        driver.quit();
     }
 }

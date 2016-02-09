@@ -1,0 +1,7 @@
+#Iniciar Hub
+
+java -jar selenium-server-standalone-2.51.0.jar -role hub
+
+#Iniciar nodo firefox y chorme
+
+java -jar selenium-server-standalone-2.51.0.jar  -role node -browser browserName=chrome -browser browserName=firefox -hub http://localhost:4444/grid/register

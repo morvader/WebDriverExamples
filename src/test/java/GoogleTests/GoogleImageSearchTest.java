@@ -23,11 +23,11 @@ public class GoogleImageSearchTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
-        driver = DriverFactory.getDriver(DriverFactory.Browsers.FIREFOX);
+        driver = DriverFactory.getDriver(DriverFactory.Browsers.CHROME);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @Test(invocationCount = 4)
+    @Test()
     public void testSearchCoiipaImage() throws Exception {
         driver.get("http://www.google.com");
 
@@ -54,7 +54,7 @@ public class GoogleImageSearchTest {
 
     @AfterMethod
     public void tearDown() throws Exception {
-        driver.close();
+        driver.quit();
 
     }
 }

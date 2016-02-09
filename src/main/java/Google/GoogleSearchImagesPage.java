@@ -3,6 +3,9 @@ package Google;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -31,18 +34,30 @@ public class GoogleSearchImagesPage extends GoogleSearchPage{
     }
 
     public void gotoImages(){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(imagenesLink));
         imagenesLink.click();
     }
 
     public void clickOnNImagen(int imagePos){
-        results.get(imagePos).click();
+        WebElement imagen = results.get(imagePos);
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(imagen));
+
+        imagen.click();
     }
 
     public void navigateNextImage(){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(navigateNextImage));
         navigateNextImage.click();
     }
 
     public void navigatePreviousImage(){
+
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(navigatePreviousImage));
         navigatePreviousImage.click();
     }
 

@@ -34,13 +34,13 @@ public class DynamicControlsPage {
     }
 
     public String getMensaje(){
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOf(mensaje));
         return mensaje.getText();
     }
 
     public boolean isCheckBoxPresent(){
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
             wait.until(ExpectedConditions.visibilityOf(checkbox));
             return true;
