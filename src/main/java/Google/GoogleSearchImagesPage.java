@@ -3,8 +3,6 @@ package Google;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -50,7 +48,5 @@ public class GoogleSearchImagesPage extends GoogleSearchPage{
 
     public void visitCurrentImagePage(){
         visitPage.click();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.stalenessOf(visitPage));
     }
 }

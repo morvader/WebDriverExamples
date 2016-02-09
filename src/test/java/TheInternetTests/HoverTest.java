@@ -2,7 +2,9 @@ package TheInternetTests;
 
 import Test.Utils.BaseTestCase;
 import Test.Utils.DriverFactory;
+import Test.Utils.ScreenShot;
 import TheInternetPages.HoversPage;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -35,7 +37,9 @@ public class HoverTest extends BaseTestCase{
     }
 
     @AfterMethod (alwaysRun = true)
-    public void tearDown() throws Exception {
+    public void tearDown(ITestResult result) throws Exception {
+
+        ScreenShot.takeScreenShot(result.getName(),driver);
         driver.close();
     }
 }
