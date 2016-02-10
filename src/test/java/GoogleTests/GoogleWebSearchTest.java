@@ -1,8 +1,8 @@
 package GoogleTests;
 
 import Google.GoogleSearchPage;
+import Test.Utils.BaseTestCase;
 import Test.Utils.DriverFactory;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -12,9 +12,7 @@ import static org.testng.Assert.assertTrue;
 /**
  * Created by francisco.moreno on 08/02/2016.
  */
-public class GoogleWebSearchTest {
-
-    WebDriver driver;
+public class GoogleWebSearchTest extends BaseTestCase{
 
     @BeforeMethod
     public void setUp() throws Exception {

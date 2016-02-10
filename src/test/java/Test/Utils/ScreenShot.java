@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.Augmenter;
 
 import java.io.File;
 import java.io.IOException;
@@ -20,9 +21,12 @@ public class ScreenShot{
 
         fileName += "_" + new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
 
-        TakesScreenshot ts=(TakesScreenshot)driver;
-        File source=ts.getScreenshotAs(OutputType.FILE);
+        WebDriver augmentedDriver = new Augmenter().augment(driver);
+        File screenshot = ((TakesScreenshot)augmentedDriver).getScreenshotAs(OutputType.FILE);
 
-        FileUtils.copyFile(source, new File("./Screenshots/"+ fileName +".png"));
+//        TakesScreenshot ts=(TakesScreenshot)driver;
+//        File source=ts.getScreenshotAs(OutputType.FILE);
+
+        FileUtils.copyFile(screenshot, new File("./Screenshots/"+ fileName +".png"));
     }
 }

@@ -1,13 +1,15 @@
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<suite name="WebDriverExamples">-->
-    <!--<listeners>-->
-        <!--<listener class-name="Test.Utils.ScreenShotListener" />-->
-    <!--</listeners>-->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="WebDriverExamples">
+    <listeners>
+        <listener class-name="Test.Utils.ScreenShotListener"/>
+    </listeners>
 
-    <!--<test name="WebDriverExamplesTest">-->
-        <!--<packages>-->
-            <!--<package name="TheInternetTests" />-->
-        <!--</packages>-->
-    <!--</test>-->
+    <test name="WebDriverExamplesTest">
+        <packages>
+            <package name="TheInternetTests"/>
+            <package name="GoogleTests"/>
+        </packages>
+    </test>
 
-<!--</suite>-->
+</suite>

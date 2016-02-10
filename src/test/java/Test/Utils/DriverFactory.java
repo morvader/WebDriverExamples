@@ -20,7 +20,7 @@ public class DriverFactory {
 
     //static String remoteURL = "http://192.168.99.100:32769/wd/hub";
 
-    static String remoteURL = "http://192.168.0.156:4444/wd/hub";
+    static String remoteURL = "http://localhost:4444/wd/hub";
 
     public static WebDriver getDriver(Browsers browser) throws MalformedURLException {
         boolean remote = checkRemoteExecution();

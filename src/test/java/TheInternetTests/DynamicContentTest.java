@@ -1,8 +1,8 @@
 package TheInternetTests;
 
+import Test.Utils.BaseTestCase;
 import Test.Utils.DriverFactory;
 import TheInternetPages.DynamicContentHidePage;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,9 +13,8 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by francisco.moreno on 04/02/2016.
  */
-public class DynamicContentTest {
+public class DynamicContentTest  extends BaseTestCase {
 
-    private WebDriver driver;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -33,7 +32,7 @@ public class DynamicContentTest {
 
         String mensaje = dynamicPage.getHiddenMessage();
 
-        assertEquals("Hello World!", mensaje,"El mensaje mostrado no es correcto");
+        assertEquals("Hello World!_", mensaje,"El mensaje mostrado no es correcto");
 
     }
 

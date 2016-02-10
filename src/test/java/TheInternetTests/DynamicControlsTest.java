@@ -1,21 +1,18 @@
 package TheInternetTests;
 
+import Test.Utils.BaseTestCase;
 import Test.Utils.DriverFactory;
 import TheInternetPages.DynamicControlsPage;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 /**
  * Created by francisco.moreno on 08/02/2016.
  */
-public class DynamicControlsTest {
-    WebDriver driver;
+public class DynamicControlsTest  extends BaseTestCase {
 
     @BeforeMethod
     public void setUp() throws Exception {

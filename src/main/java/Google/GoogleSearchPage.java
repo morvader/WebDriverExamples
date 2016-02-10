@@ -43,7 +43,6 @@ public class GoogleSearchPage {
         wait.until(ExpectedConditions.visibilityOf(resultStats));
 
         WebElement posResult = results.get(resultPosition);
-
         return posResult.findElement(By.tagName("h3")).getText();
     }
 

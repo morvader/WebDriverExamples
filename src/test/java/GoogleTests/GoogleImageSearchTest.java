@@ -1,9 +1,9 @@
 package GoogleTests;
 
 import Google.GoogleSearchImagesPage;
+import Test.Utils.BaseTestCase;
 import Test.Utils.DriverFactory;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -17,9 +17,8 @@ import static org.testng.Assert.fail;
 /**
  * Created by francisco.moreno on 08/02/2016.
  */
-public class GoogleImageSearchTest {
+public class GoogleImageSearchTest extends BaseTestCase{
 
-    WebDriver driver;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -27,7 +26,7 @@ public class GoogleImageSearchTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @Test()
+    @Test(description = "Visitar la página del COIIPA partiendo de su imagen")
     public void testSearchCoiipaImage() throws Exception {
         driver.get("http://www.google.com");
 
