@@ -5,3 +5,6 @@ java -jar selenium-server-standalone-2.51.0.jar -role hub
 #Iniciar nodo firefox y chorme
 
 java -jar selenium-server-standalone-2.51.0.jar  -role node -browser browserName=chrome -browser browserName=firefox -hub http://localhost:4444/grid/register
+
+
+docker run -d -p 5557:5555 -P -e HUB_PORT_4444_TCP_ADDR=192.168.0.156 -e HUB_PORT_4444_TCP_PORT=4444 -e REMOTE_HOST=http://192.168.99.100:5557 selenium/node-chrome-debug

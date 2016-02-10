@@ -18,15 +18,13 @@ import java.util.Date;
 public class ScreenShot{
 
     static public void takeScreenShot(String fileName, WebDriver driver) throws IOException {
+        synchronized (driver) {
+            fileName += "_" + new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
 
-        fileName += "_" + new SimpleDateFormat("yyyyMMddhhmm").format(new Date());
+            WebDriver augmentedDriver = new Augmenter().augment(driver);
+            File screenshot = ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);
 
-        WebDriver augmentedDriver = new Augmenter().augment(driver);
-        File screenshot = ((TakesScreenshot)augmentedDriver).getScreenshotAs(OutputType.FILE);
-
-//        TakesScreenshot ts=(TakesScreenshot)driver;
-//        File source=ts.getScreenshotAs(OutputType.FILE);
-
-        FileUtils.copyFile(screenshot, new File("./Screenshots/"+ fileName +".png"));
+            FileUtils.copyFile(screenshot, new File("./Screenshots/" + fileName + ".png"));
+        }
     }
 }

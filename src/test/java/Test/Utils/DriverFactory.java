@@ -18,7 +18,7 @@ public class DriverFactory {
 
     public enum Browsers {FIREFOX, CHROME}
 
-    //static String remoteURL = "http://192.168.99.100:32769/wd/hub";
+    //static String remoteURL = "http://192.168.99.100:32777/wd/hub";
 
     static String remoteURL = "http://localhost:4444/wd/hub";
 
