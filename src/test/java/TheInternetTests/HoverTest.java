@@ -33,7 +33,7 @@ public class HoverTest extends BaseTestCase{
 
         String userName= hoversPage.getUserName(1);
 
-        assertEquals(userName, "name: user3", "El nombre del usuario 2 no es correcto");
+        assertEquals(userName, "name: user2", "El nombre del usuario 2 no es correcto");
     }
 
     @AfterMethod (alwaysRun = true)

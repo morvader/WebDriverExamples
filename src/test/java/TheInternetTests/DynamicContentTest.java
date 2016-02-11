@@ -19,20 +19,20 @@ public class DynamicContentTest  extends BaseTestCase {
     @BeforeMethod
     public void setUp() throws Exception {
         driver = DriverFactory.getDriver(DriverFactory.Browsers.FIREFOX);
-
+        driver.get("http://the-internet.herokuapp.com/dynamic_loading/1");
     }
 
     @Test
     public void testAppearsDynamicHideElement() throws Exception {
 
-        driver.get("http://the-internet.herokuapp.com/dynamic_loading/1");
+
         DynamicContentHidePage dynamicPage = new DynamicContentHidePage(driver);
 
         dynamicPage.clickStart();
 
         String mensaje = dynamicPage.getHiddenMessage();
 
-        assertEquals("Hello World!_", mensaje,"El mensaje mostrado no es correcto");
+        assertEquals("Hello World!", mensaje, "El mensaje mostrado no es correcto");
 
     }
 
