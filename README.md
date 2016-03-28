@@ -1,7 +1,7 @@
-# WebDriverExamples
-Selenium WebDriver Examples to show concepts as:
-* Selector 
-* Waits
-* Page Object Pattern
-* Grid Execution
-* Screeshot capture
+# Selenium WebDriver Examples
+Set examples to show concepts as:
+   * WebDriver Selectors
+   * Waits
+   * Page Object Pattern
+   * Grid Execution
+   * Screeshot capture
