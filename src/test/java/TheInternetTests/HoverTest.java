@@ -8,8 +8,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.testng.Assert.assertEquals;
 
 /**
@@ -20,8 +18,6 @@ public class HoverTest extends BaseTestCase{
     @BeforeMethod
     public void setUp() throws Exception {
         driver = DriverFactory.getDriver(DriverFactory.Browsers.FIREFOX);
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         driver.get("http://the-internet.herokuapp.com/hovers");
     }

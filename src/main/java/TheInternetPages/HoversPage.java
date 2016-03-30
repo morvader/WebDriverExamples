@@ -1,5 +1,6 @@
 package TheInternetPages;
 
+import PageObject.BasePageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,14 +13,13 @@ import java.util.List;
 /**
  * Created by francisco.moreno on 08/02/2016.
  */
-public class HoversPage {
-    WebDriver driver;
+public class HoversPage extends BasePageObject {
 
     @FindBy(xpath = "//div[@class=\'figure\']")
     List<WebElement> users;
 
     public HoversPage(WebDriver driver) {
-        this.driver = driver;
+        super.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

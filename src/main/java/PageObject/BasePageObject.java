@@ -36,6 +36,34 @@ public class BasePageObject {
         }
     }
 
+    public Boolean isAlertPresent(Integer... timeout) {
+        int timeOut = timeout.length > 0 ? timeout[0] : 10;
+
+        WebDriverWait wait = new WebDriverWait(driver, timeOut);
+        try {
+            wait.until(ExpectedConditions.alertIsPresent());
+            return true;
+        } catch (TimeoutException to) {
+            return false;
+        }
+    }
+
+    public void confirmAlert() {
+        driver.switchTo().alert().accept();
+    }
+
+    public void dismissAlert() {
+        driver.switchTo().alert().dismiss();
+    }
+
+    public String getAlertText() {
+        return driver.switchTo().alert().getText();
+    }
+
+    public void setPromtAlertText(String text) {
+        driver.switchTo().alert().sendKeys(text);
+    }
+
     public void switchToNewTab() {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));

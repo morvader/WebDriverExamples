@@ -12,8 +12,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import java.util.concurrent.TimeUnit;
-
 import static org.testng.Assert.fail;
 
 /**
@@ -28,7 +26,6 @@ public class GoogleImageSearchTest extends BaseTestCase{
     @BeforeMethod
     public void setUp() throws Exception {
         driver = DriverFactory.getDriver(DriverFactory.Browsers.CHROME);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test(description = "Visitar la página del COIIPA partiendo de su imagen")

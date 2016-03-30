@@ -1,5 +1,6 @@
 package TheInternetPages;
 
+import PageObject.BasePageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,9 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by francisco.moreno on 03/02/2016.
  */
-public class LoginPage {
+public class LoginPage extends BasePageObject {
 
-    WebDriver driver;
 
     @FindBy (id="username")
     private WebElement usernameInput;
@@ -25,7 +25,7 @@ public class LoginPage {
     private WebElement mensajeError;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        super.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
