@@ -3,11 +3,13 @@ package GoogleTests;
 import Google.GoogleSearchImagesPage;
 import Test.Utils.BaseTestCase;
 import Test.Utils.DriverFactory;
+import Test.Utils.ScreenShotListener;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -17,7 +19,10 @@ import static org.testng.Assert.fail;
 /**
  * Created by francisco.moreno on 08/02/2016.
  */
+
+@Listeners(ScreenShotListener.class)
 public class GoogleImageSearchTest extends BaseTestCase{
+
 
 
     @BeforeMethod
@@ -38,11 +43,15 @@ public class GoogleImageSearchTest extends BaseTestCase{
         googleImageSearch.clickOnNImagen(0);
 
         googleImageSearch.navigateNextImage();
-        googleImageSearch.navigateNextImage();
+        //googleImageSearch.navigateNextImage();
 
         googleImageSearch.visitCurrentImagePage();
 
         try {
+            //En enlace se abre una nueva pestaña
+            //Debemos comprobar la URL en la nueva ventana
+            googleImageSearch.switchToNewTab();
+
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.urlContains("http://coiipa.org"));
 

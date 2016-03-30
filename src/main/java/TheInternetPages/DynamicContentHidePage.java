@@ -1,17 +1,15 @@
 package TheInternetPages;
 
+import PageObject.BasePageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by francisco.moreno on 04/02/2016.
  */
-public class DynamicContentHidePage {
-    WebDriver driver;
+public class DynamicContentHidePage extends BasePageObject {
 
     @FindBy(xpath = "//button")
     private WebElement starButton;
@@ -21,7 +19,7 @@ public class DynamicContentHidePage {
 
 
     public DynamicContentHidePage(WebDriver driver) {
-        this.driver = driver;
+        super.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
@@ -31,8 +29,7 @@ public class DynamicContentHidePage {
 
     public String getHiddenMessage(){
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(hiddenMessage));
+        waitForVisibility(hiddenMessage);
 
         String mensaje = hiddenMessage.getText();
 

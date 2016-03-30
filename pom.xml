@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <webDriver.version>2.50.1</webDriver.version>
+        <webDriver.version>2.53.0</webDriver.version>
         <testng.version>6.9.9</testng.version>
     </properties>
 

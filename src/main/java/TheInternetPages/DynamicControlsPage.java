@@ -1,19 +1,15 @@
 package TheInternetPages;
 
-import org.openqa.selenium.TimeoutException;
+import PageObject.BasePageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by francisco.moreno on 08/02/2016.
  */
-public class DynamicControlsPage {
-
-    WebDriver driver;
+public class DynamicControlsPage extends BasePageObject {
 
     @FindBy(id = "btn")
     WebElement btn;
@@ -25,7 +21,7 @@ public class DynamicControlsPage {
     WebElement mensaje;
 
     public DynamicControlsPage(WebDriver driver) {
-        this.driver = driver;
+        super.driver = driver;
         PageFactory.initElements(driver,this);
     }
 
@@ -34,18 +30,11 @@ public class DynamicControlsPage {
     }
 
     public String getMensaje(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(mensaje));
+        waitForVisibility(mensaje);
         return mensaje.getText();
     }
 
     public boolean isCheckBoxPresent(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        try {
-            wait.until(ExpectedConditions.visibilityOf(checkbox));
-            return true;
-        }catch (TimeoutException to){
-            return false;
-        }
+        return isElementPresent(checkbox, 5);
     }
 }
