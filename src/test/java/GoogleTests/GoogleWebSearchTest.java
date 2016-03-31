@@ -28,7 +28,7 @@ public class GoogleWebSearchTest extends BaseTestCase{
 
         String textoPrimerResultado = googleSearch.getResultText(0);
 
-        assertTrue(textoPrimerResultado.startsWith("Coiipa"), "El primer resultado no contiene el texto esperado");
+        assertTrue(textoPrimerResultado.startsWith("Colegio Oficial de Ingenieros en Informática del Principado"), "El primer resultado no contiene el texto esperado");
     }
 
     @AfterMethod

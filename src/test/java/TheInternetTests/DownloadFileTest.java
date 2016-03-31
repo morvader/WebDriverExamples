@@ -27,7 +27,7 @@ public class DownloadFileTest extends BaseTestCase {
     }
 
     @Test
-    public void testDatosCorrectorUsuario2() throws Exception {
+    public void testDownloadFile() throws Exception {
         DownloadPage downloadPage = new DownloadPage(driver);
         String downloadPath = DriverFactory.getDownloadsPath();
 

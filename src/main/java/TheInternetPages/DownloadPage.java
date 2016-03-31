@@ -11,8 +11,8 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class DownloadPage extends BasePageObject {
 
-    @FindBy(css = ".example>a")
-    WebElement downloadLink;
+    @FindBy(linkText = "some-file.txt")
+    WebElement textFileDownloadLink;
 
     public DownloadPage(WebDriver driver) {
         super.driver = driver;
@@ -20,10 +20,10 @@ public class DownloadPage extends BasePageObject {
     }
 
     public void clickDownloadLink() {
-        downloadLink.click();
+        textFileDownloadLink.click();
     }
 
     public String getFileName() {
-        return downloadLink.getText();
+        return textFileDownloadLink.getText();
     }
 }
