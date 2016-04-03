@@ -22,9 +22,9 @@ public class DriverFactory {
 
     public enum Browsers {FIREFOX, CHROME}
 
-    //static String remoteURL = "http://192.168.99.100:32777/wd/hub";
+    static String remoteURL = "http://192.168.99.100:32769/wd/hub";
 
-    static String remoteURL = "http://localhost:4444/wd/hub";
+    //static String remoteURL = "http://localhost:4444/wd/hub";
 
     public static WebDriver getDriver(Browsers browser) throws MalformedURLException {
         boolean remote = checkRemoteExecution();
@@ -50,8 +50,12 @@ public class DriverFactory {
     }
 
     public static String getDownloadsPath() {
-        Path currentRelativePath = Paths.get("");
-        File file1 = new File(currentRelativePath.toAbsolutePath().toString());
+        String property = "java.io.tmpdir";
+        String tempDir = System.getProperty(property);
+
+        //Path currentRelativePath = Paths.get("");
+        //File file1 = new File(currentRelativePath.toAbsolutePath().toString());
+        File file1 = new File(tempDir);
         File file2 = new File(file1, "/testDownloads");
         return file2.getPath();
     }
@@ -64,15 +68,21 @@ public class DriverFactory {
         profile.setPreference("browser.download.manager.showWhenStarting", false);
         profile.setPreference("browser.download.dir", getDownloadsPath());
         profile.setPreference("browser.helperApps.neverAsk.openFile",
-                "text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml,application/octet-stream");
+                "text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg," +
+                        "text/html,text/plain,application/msword,application/xml,application/octet-stream," +
+                        "application/x-unknown,binary/octet-stream, application/binary,");
         profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
-                "text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml,application/octet-stream");
+                "text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg," +
+                        "text/html,text/plain,application/msword,application/xml,application/octet-stream," +
+                        "application/x-unknown,binary/octet-stream, application/binary,");
         profile.setPreference("browser.helperApps.alwaysAsk.force", false);
         profile.setPreference("browser.download.manager.alertOnEXEOpen", false);
-        profile.setPreference("browser.download.manager.focusWhenStarting", false);
+        profile.setPreference("browser.download.manager.focusWhenStarting", true);
         profile.setPreference("browser.download.manager.useWindow", false);
         profile.setPreference("browser.download.manager.showAlertOnComplete", false);
-        profile.setPreference("browser.download.manager.closeWhenDone", false);
+        profile.setPreference("browser.download.manager.closeWhenDone", true);
+        profile.setPreference("browser.download.useDownloadDir", true);
+        profile.setPreference("pdfjs.disabled", true);
 
         return profile;
     }
