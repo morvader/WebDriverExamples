@@ -4,4 +4,4 @@ Set examples to show concepts as:
    * Waits
    * Page Object Pattern
    * Grid Execution
-   * Screeshot capture
+   * Screenshot capture
