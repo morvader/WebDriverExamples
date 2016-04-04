@@ -10,8 +10,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  * Created by francisco.moreno on 04/02/2016.
@@ -53,8 +51,6 @@ public class DriverFactory {
         String property = "java.io.tmpdir";
         String tempDir = System.getProperty(property);
 
-        //Path currentRelativePath = Paths.get("");
-        //File file1 = new File(currentRelativePath.toAbsolutePath().toString());
         File file1 = new File(tempDir);
         File file2 = new File(file1, "/testDownloads");
         return file2.getPath();

@@ -22,8 +22,8 @@ public class DownloadFileTest extends BaseTestCase {
         //Borramos el contenido del directorio
         deleteFiles(new File(DriverFactory.getDownloadsPath()));
 
-        //driver = DriverFactory.getDriver(DriverFactory.Browsers.FIREFOX);
-        //driver.get("http://the-internet.herokuapp.com/download");
+        driver = DriverFactory.getDriver(DriverFactory.Browsers.FIREFOX);
+        driver.get("http://the-internet.herokuapp.com/download");
     }
 
     @Test
@@ -41,6 +41,8 @@ public class DownloadFileTest extends BaseTestCase {
         //Comprobar que el fichero existe y está en la ruta especificada
         File f = new File(downloadPath, downloadFileName);
 
+        System.out.println("Comprobar fichero en: " + f.getAbsolutePath());
+
         assertTrue(f.exists() && !f.isDirectory(), "El fichero no existe en la ruta especificada");
         assertTrue(f.length() > 0, "El fichero esta vacio");
 
@@ -48,7 +50,7 @@ public class DownloadFileTest extends BaseTestCase {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) throws Exception {
-        //driver.quit();
+        driver.quit();
     }
 
     private void deleteFiles(File directory) {
