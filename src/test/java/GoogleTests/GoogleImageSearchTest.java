@@ -25,7 +25,7 @@ public class GoogleImageSearchTest extends BaseTestCase{
 
     @BeforeMethod
     public void setUp() throws Exception {
-        driver = DriverFactory.getDriver(DriverFactory.Browsers.CHROME);
+        driver = DriverFactory.getDriver(DriverFactory.Browsers.FIREFOX);
     }
 
     @Test(description = "Visitar la página del COIIPA partiendo de su imagen")
