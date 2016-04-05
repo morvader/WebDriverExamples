@@ -30,6 +30,8 @@ public class LoginPage extends BasePageObject {
     }
 
     public void loginAs(String user, String pass){
+        waitForVisibility(usernameInput);
+
         usernameInput.sendKeys(user);
         passwordInput.sendKeys(pass);
 

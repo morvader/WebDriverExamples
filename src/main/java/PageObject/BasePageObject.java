@@ -16,6 +16,10 @@ public class BasePageObject {
 
     protected WebDriver driver;
 
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     public void waitForElementClickable(WebElement webElement, Integer... timeout) {
         int timeOut = timeout.length > 0 ? timeout[0] : 10;
         waitForCondition(ExpectedConditions.elementToBeClickable(webElement), timeOut);

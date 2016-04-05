@@ -1,4 +1,4 @@
-package TheInternetTests;
+package TestNG.TheInternetTests;
 
 import Test.Utils.BaseTestCase;
 import Test.Utils.DriverFactory;
@@ -14,7 +14,6 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertEqualsNoOrder;
 
 /**
  * Created by Moreno on 03/04/2016.

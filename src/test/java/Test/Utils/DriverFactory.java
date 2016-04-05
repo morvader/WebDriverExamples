@@ -79,6 +79,8 @@ public class DriverFactory {
         profile.setPreference("browser.download.manager.closeWhenDone", true);
         profile.setPreference("browser.download.useDownloadDir", true);
         profile.setPreference("pdfjs.disabled", true);
+        profile.setPreference("browser.link.open_newwindow", 2);
+        profile.setPreference("browser.link.open_external", 2);
 
         return profile;
     }

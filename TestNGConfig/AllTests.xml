@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="WebDriverExamples">
+    <listeners>
+        <listener class-name="Test.Utils.ScreenShotListener"/>
+    </listeners>
+
+    <test name="WebDriverExamplesTest">
+        <packages>
+            <package name="TestNG.TheInternetTests"/>
+            <package name="TestNG.GoogleTests"/>
+        </packages>
+        <classes>
+            <class name="cucumber.TheInternet.Steps.RunCukesTest"/>
+        </classes>
+    </test>
+
+</suite>

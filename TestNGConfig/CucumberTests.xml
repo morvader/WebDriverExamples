@@ -5,11 +5,10 @@
         <listener class-name="Test.Utils.ScreenShotListener"/>
     </listeners>
 
-    <test name="WebDriverExamplesTest">
-        <packages>
-            <package name="TheInternetTests"/>
-            <package name="GoogleTests"/>
-        </packages>
+    <test name="WebDriverExamplesTest-Cucumber">
+        <classes>
+            <class name="cucumber.TheInternet.Steps.RunTheInternetCukesTest"/>
+        </classes>
     </test>
 
 </suite>

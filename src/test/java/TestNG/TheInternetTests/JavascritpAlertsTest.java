@@ -1,4 +1,4 @@
-package TheInternetTests;
+package TestNG.TheInternetTests;
 
 import Test.Utils.BaseTestCase;
 import Test.Utils.DriverFactory;

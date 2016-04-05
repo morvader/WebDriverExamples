@@ -14,7 +14,11 @@
 
         <webDriver.version>2.53.0</webDriver.version>
         <testng.version>6.9.9</testng.version>
+        <cukes.version>1.2.4</cukes.version>
+
+        <TestNgConfig>AllTest.xml</TestNgConfig>
     </properties>
+
 
     <dependencies>
         <dependency>
@@ -31,6 +35,19 @@
             <version>${webDriver.version}</version>
         </dependency>
 
+        <!-- Cucumber depencies-->
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cukes.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cukes.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -43,11 +60,32 @@
                     <parallel>classes</parallel>
                     <threadCount>2</threadCount>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${TestNgConfig}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>allTest</id>
+            <properties>
+                <TestNgConfig>./TestNgConfig/AllTest.xml</TestNgConfig>
+            </properties>
+        </profile>
+        <profile>
+            <id>cucumber</id>
+            <properties>
+                <TestNgConfig>./TestNgConfig/CucumberTests.xml</TestNgConfig>
+            </properties>
+        </profile>
+        <profile>
+            <id>testng</id>
+            <properties>
+                <TestNgConfig>./TestNgConfig/TestNgTests.xml</TestNgConfig>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

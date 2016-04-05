@@ -1,4 +1,4 @@
-package GoogleTests;
+package TestNG.GoogleTests;
 
 import Google.GoogleSearchPage;
 import Test.Utils.BaseTestCase;
