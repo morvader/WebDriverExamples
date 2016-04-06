@@ -11,7 +11,8 @@
             <package name="TestNG.GoogleTests"/>
         </packages>
         <classes>
-            <class name="cucumber.TheInternet.Steps.RunCukesTest"/>
+            <class name="cucumber.Steps.TheInternet.RunTheInternetCukesTest"/>
+            <class name="cucumber.Steps.Google.RunGoogleCukesTest"/>
         </classes>
     </test>
 

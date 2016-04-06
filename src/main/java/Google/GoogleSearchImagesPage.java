@@ -55,6 +55,7 @@ public class GoogleSearchImagesPage extends GoogleSearchPage{
     }
 
     public void visitCurrentImagePage(){
+        waitForElementClickable(visitPage);
         visitPage.click();
     }
 }

@@ -7,7 +7,8 @@
 
     <test name="WebDriverExamplesTest-Cucumber">
         <classes>
-            <class name="cucumber.TheInternet.Steps.RunTheInternetCukesTest"/>
+            <class name="cucumber.Steps.TheInternet.RunTheInternetCukesTest"/>
+            <class name="cucumber.Steps.Google.RunGoogleCukesTest"/>
         </classes>
     </test>
 

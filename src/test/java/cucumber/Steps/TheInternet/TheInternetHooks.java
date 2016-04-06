@@ -1,4 +1,4 @@
-package cucumber.TheInternet.Steps;
+package cucumber.Steps.TheInternet;
 
 import Test.Utils.DriverFactory;
 import cucumber.api.Scenario;
@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 /**
  * Created by francisco.moreno on 04/04/2016.
  */
-public class Hooks {
+public class TheInternetHooks {
 
     public static WebDriver driver;
 

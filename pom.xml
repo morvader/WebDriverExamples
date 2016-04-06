@@ -16,7 +16,7 @@
         <testng.version>6.9.9</testng.version>
         <cukes.version>1.2.4</cukes.version>
 
-        <TestNgConfig>AllTest.xml</TestNgConfig>
+        <TestNgConfig>./TestNgConfig/AllTests.xml</TestNgConfig>
     </properties>
 
 
@@ -71,7 +71,7 @@
         <profile>
             <id>allTest</id>
             <properties>
-                <TestNgConfig>./TestNgConfig/AllTest.xml</TestNgConfig>
+                <TestNgConfig>./TestNgConfig/AllTests.xml</TestNgConfig>
             </properties>
         </profile>
         <profile>

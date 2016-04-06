@@ -1,4 +1,4 @@
-package cucumber.TheInternet.Steps;
+package cucumber.Steps.TheInternet;
 
 import TheInternetPages.LoginPage;
 import TheInternetPages.LoginSuccessPage;
@@ -22,7 +22,7 @@ public class LoginStepdefs {
     private WebDriver driver;
 
     public LoginStepdefs() {
-        driver = Hooks.driver;
+        driver = TheInternetHooks.driver;
     }
 
     @Given("^un usuario con credenciales incorrectas$")
