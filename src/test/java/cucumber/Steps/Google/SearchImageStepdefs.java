@@ -4,12 +4,9 @@ import Google.GoogleSearchImagesPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.testng.Assert.fail;
+import static org.testng.Assert.assertTrue;
 
 /**
  * Created by francisco.moreno on 06/04/2016.
@@ -41,16 +38,9 @@ public class SearchImageStepdefs {
     public void llegoALaDeseada(String urlWebDeseada) throws Throwable {
         googleSearchImagesPage.visitCurrentImagePage();
 
-        try {
-            //En enlace se abre una nueva pestaña
-            //Debemos comprobar la URL en la nueva ventana
-            googleSearchImagesPage.switchToNewTab();
+        googleSearchImagesPage.switchToNewTab();
 
-            WebDriverWait wait = new WebDriverWait(driver, 10);
-            wait.until(ExpectedConditions.urlToBe(urlWebDeseada));
+        assertTrue(googleSearchImagesPage.checkCurrentURLIs(urlWebDeseada), "No estamos en la pagina deseada. La url es " + driver.getCurrentUrl());
 
-        } catch (TimeoutException to) {
-            fail("No estamos en la web deseada");
-        }
     }
 }

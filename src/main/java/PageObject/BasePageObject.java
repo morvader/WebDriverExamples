@@ -52,6 +52,16 @@ public class BasePageObject {
         }
     }
 
+    public Boolean checkCurrentURLIs(String url) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.urlToBe(url));
+            return true;
+        } catch (TimeoutException to) {
+            return false;
+        }
+    }
+
     public void confirmAlert() {
         driver.switchTo().alert().accept();
     }
