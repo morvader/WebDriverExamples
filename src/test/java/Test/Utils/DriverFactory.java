@@ -20,18 +20,22 @@ public class DriverFactory {
 
     public enum Browsers {FIREFOX, CHROME}
 
-    static String remoteURL = "http://192.168.99.100:32769/wd/hub";
+    //static String remoteURL = "http://192.168.99.100:32769/wd/hub";
 
-    //static String remoteURL = "http://localhost:4444/wd/hub";
+    static String remoteURL = "http://localhost:4444/wd/hub";
 
     public static WebDriver getDriver(Browsers browser) throws MalformedURLException {
         boolean remote = checkRemoteExecution();
 
         switch (browser) {
             case FIREFOX:
-                if (remote)
-                    return new RemoteWebDriver(new URL(remoteURL),
-                            DesiredCapabilities.firefox());
+                if (remote) {
+                    FirefoxProfile firefoxProfile = getFirefoxProfile();
+                    DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+                    capabilities.setCapability(FirefoxDriver.PROFILE, firefoxProfile);
+
+                    return new RemoteWebDriver(new URL(remoteURL), capabilities);
+                }
                 return new FirefoxDriver(getFirefoxProfile());
             case CHROME:
                 if (remote)

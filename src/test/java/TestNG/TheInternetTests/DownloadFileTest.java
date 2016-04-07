@@ -43,7 +43,7 @@ public class DownloadFileTest extends BaseTestCase {
 
         System.out.println("Comprobar fichero en: " + f.getAbsolutePath());
 
-        assertTrue(f.exists() && !f.isDirectory(), "El fichero no existe en la ruta especificada");
+        assertTrue(f.exists() && !f.isDirectory(), "El fichero no existe en la ruta " + f.getAbsolutePath());
         assertTrue(f.length() > 0, "El fichero esta vacio");
 
     }

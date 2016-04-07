@@ -57,8 +57,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
-                    <parallel>classes</parallel>
-                    <threadCount>2</threadCount>
+                    <!--<parallel>classes</parallel>-->
+                    <!--<threadCount>2</threadCount>-->
                     <suiteXmlFiles>
                         <suiteXmlFile>${TestNgConfig}</suiteXmlFile>
                     </suiteXmlFiles>
